@@ -1,6 +1,14 @@
 import express from "express";
+import "./database";
+import { router } from "./routers";
+import "reflect-metadata";
 
 const app = express();
+
+app.use(express.json());
+
+app.use( router );
+
 
 /**
  * METODOS:
@@ -11,16 +19,16 @@ const app = express();
  * PATCH -> ALTERACAO ESPECIFICA
  */
 
- app.get("/users", (request, response) => { //Definindo a rota: vai buscar o http://localhost:3333/users (users: nome da rota)
+//  app.get("/users", (request, response) => { //Definindo a rota: vai buscar o http://localhost:3333/users (users: nome da rota)
 
-    return response.json({message: "Hello World"});
- });
+//     return response.json({message: "Hello World"});
+//  });
 
  // O primeiro parametro é a roda (Recurso API)
  // O segundo parametro é request e response
 
- app.post("/", (request, response) => { //recebe dados para salvar
-    return response.json({message: "Os dados foram salvos com sucesso!"})
- })
+//  app.post("/", (request, response) => { //recebe dados para salvar
+//     return response.json({message: "Os dados foram salvos com sucesso!"})
+//  })
 
  app.listen(3333, () => console.log("Server is running"));
